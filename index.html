@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Running Animation on Surface</title>
+    <title>Running Animation with Wind Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <style>
         body {
@@ -23,7 +23,7 @@
             height: 100vh;
             overflow: hidden;
             display: flex;
-            align-items: center; /* Aligns runner vertically to center */
+            align-items: center; /* Vertically center the runner */
             justify-content: flex-start;
         }
 
@@ -48,16 +48,6 @@
             opacity: 0.7;
         }
 
-        .surface {
-            position: absolute;
-            bottom: 20%;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: #333;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
         /* Wind Effect */
         .wind {
             position: absolute;
@@ -65,10 +55,11 @@
             left: 0;
             width: 200vw; /* Extended width for wind animation */
             height: 100vh;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.2) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
             pointer-events: none;
             z-index: 1;
             opacity: 0.7;
+            filter: blur(2px);
         }
 
         .wind2 {
@@ -77,23 +68,45 @@
             left: 0;
             width: 200vw;
             height: 100vh;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.2) 100%);
             pointer-events: none;
             z-index: 1;
-            opacity: 0.4;
+            opacity: 0.5;
+            filter: blur(1px);
+        }
+
+        /* Wind particle lines for visual wind effect */
+        .wind-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .wind-line {
+            position: absolute;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 0;
         }
     </style>
 </head>
 
 <body>
     <div class="runner-container">
-        <div class="surface"></div>
 
         <!-- Wind Effects -->
         <div class="wind"></div>
         <div class="wind2"></div>
+        <div class="wind-lines"></div>
 
-        <img src="runner.png" alt="Running Silhouette" class="runner">
+        <!-- Runner -->
+        <img src="https://the-lamp.github.io/S/assets/runner.png" alt="Running Silhouette" class="runner">
         <div class="shadow"></div>
     </div>
 
@@ -140,6 +153,32 @@
             repeat: -1,
             ease: "linear"
         });
+
+        // Create and animate wind lines for more visible wind
+        function createWindLines() {
+            const windLinesContainer = document.querySelector('.wind-lines');
+            for (let i = 0; i < 15; i++) {
+                let windLine = document.createElement('div');
+                windLine.classList.add('wind-line');
+                windLine.style.left = `${Math.random() * 100}vw`;
+                windLine.style.top = `${Math.random() * 100}vh`;
+                windLine.style.height = `${Math.random() * 20 + 10}vh`;
+                windLine.style.opacity = Math.random() * 0.5 + 0.2;
+
+                windLinesContainer.appendChild(windLine);
+
+                // Animate each wind line
+                gsap.to(windLine, {
+                    x: "-120vw",
+                    duration: Math.random() * 2 + 1,
+                    repeat: -1,
+                    ease: "linear",
+                    delay: Math.random() * 2
+                });
+            }
+        }
+
+        createWindLines();
     </script>
 </body>
 
