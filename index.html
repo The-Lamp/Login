@@ -24,41 +24,65 @@
             overflow: hidden;
         }
 
-        svg {
+        .runner {
             position: absolute;
             bottom: 10%;
             left: -20%;
-            width: 15%;
+            width: 150px;
+            height: auto;
+            opacity: 0.9;
+            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Adding a shadow to simulate ground movement */
+        .shadow {
+            position: absolute;
+            bottom: 5%;
+            left: -20%;
+            width: 150px;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 70%);
+            transform-origin: center;
+            opacity: 0.5;
         }
     </style>
 </head>
 
 <body>
     <div class="runner-container">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-            <!-- Yeh SVG image sirf ek basic representation hai running person ki, aap ise custom image se replace kar sakte hain -->
-            <polygon points="50 5 65 20 55 25 70 40 60 45 75 80 65 80 55 55 45 60 40 50 30 55 35 75 25 75 20 60 30 40 20 25 35 20" fill="#000" />
-        </svg>
+        <!-- Image of Running Silhouette -->
+        <img src="runner.png" alt="Running Silhouette" class="runner">
+        <div class="shadow"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script>
-        // GSAP ka use karke smooth running effect create kar rahe hain
-        gsap.to("svg", {
+        // GSAP ka use karke runner aur uski shadow ki animation create kar rahe hain
+        gsap.to(".runner", {
             x: "120vw",
             ease: "power1.inOut",
-            duration: 5,
+            duration: 4,
             repeat: -1,
             yoyo: true
         });
 
-        gsap.to("polygon", {
+        gsap.to(".shadow", {
+            x: "120vw",
+            scaleX: 1.1,
+            ease: "power1.inOut",
+            duration: 4,
+            repeat: -1,
+            yoyo: true
+        });
+
+        // Thodi aur dynamic movement dene ke liye keyframes add kiye hain
+        gsap.to(".runner", {
             keyframes: [
-                { scaleY: 1.2, duration: 0.1, ease: "power1.inOut" },
-                { scaleY: 1, duration: 0.1, ease: "power1.inOut" }
+                { y: -10, duration: 0.2, ease: "power1.inOut" },
+                { y: 0, duration: 0.2, ease: "power1.inOut" }
             ],
             repeat: -1,
-            duration: 0.2
+            duration: 0.4
         });
     </script>
 </body>
