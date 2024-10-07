@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced Running Animation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             overflow: hidden;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             background-color: #f0f0f0;
@@ -22,11 +24,13 @@
             width: 100vw;
             height: 100vh;
             overflow: hidden;
+            display: flex;
+            align-items: center; /* Centering vertically */
         }
 
         .runner {
             position: absolute;
-            bottom: 10%;
+            bottom: 40%; /* Vertical centering adjustment */
             left: -20%;
             width: 150px;
             height: auto;
@@ -34,10 +38,9 @@
             filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
         }
 
-        /* Adding a shadow to simulate ground movement */
         .shadow {
             position: absolute;
-            bottom: 5%;
+            bottom: 35%; /* Shadow adjustment */
             left: -20%;
             width: 150px;
             height: 20px;
@@ -45,19 +48,28 @@
             transform-origin: center;
             opacity: 0.5;
         }
+
+        .brand-name {
+            position: absolute;
+            top: 10%; /* Positioning the brand name */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            color: #333;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 
 <body>
     <div class="runner-container">
-        <!-- Image of Running Silhouette -->
-        <img src="runner.png" alt="Running Silhouette" class="runner">
+        <div class="brand-name">The Lamp</div>
+        <img src="https://the-lamp.github.io/S/assets/runner.png" alt="Running Silhouette" class="runner">
         <div class="shadow"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script>
-        // GSAP ka use karke runner aur uski shadow ki animation create kar rahe hain
+        // GSAP animation for runner and shadow
         gsap.to(".runner", {
             x: "120vw",
             ease: "power1.inOut",
@@ -75,7 +87,7 @@
             yoyo: true
         });
 
-        // Thodi aur dynamic movement dene ke liye keyframes add kiye hain
+        // Dynamic bounce effect for runner
         gsap.to(".runner", {
             keyframes: [
                 { y: -10, duration: 0.2, ease: "power1.inOut" },
