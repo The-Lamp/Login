@@ -31,7 +31,7 @@
             position: absolute;
             bottom: 50%; /* Vertically center the runner */
             left: -10%;
-            width: 120px; /* A little larger */
+            width: 90px; /* Reduced the size of the runner */
             height: auto;
             opacity: 0.9;
             filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.4));
@@ -41,73 +41,53 @@
             position: absolute;
             bottom: 45%; /* Shadow aligned just below the runner */
             left: -10%;
-            width: 120px;
+            width: 90px;
             height: 20px;
             background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 80%);
             transform-origin: center;
             opacity: 0.7;
         }
 
-        /* Wind Effect */
-        .wind {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200vw; /* Extended width for wind animation */
-            height: 100vh;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.3) 100%);
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.7;
-            filter: blur(2px);
-        }
-
-        .wind2 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200vw;
-            height: 100vh;
-            background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.2) 100%);
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.5;
-            filter: blur(1px);
-        }
-
-        /* Wind particle lines for visual wind effect */
-        .wind-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
+        /* Wind Lines Effect */
         .wind-line {
             position: absolute;
-            top: 0;
-            width: 3px;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.3);
-            opacity: 0;
+            top: 50%; /* Vertically center the wind lines */
+            width: 0;
+            height: 3px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .wind-line-1 {
+            left: -5%;
+        }
+
+        .wind-line-2 {
+            left: -10%;
+        }
+
+        .wind-line-3 {
+            left: -15%;
+        }
+
+        .wind-line-4 {
+            left: -20%;
         }
     </style>
 </head>
 
 <body>
     <div class="runner-container">
-
-        <!-- Wind Effects -->
-        <div class="wind"></div>
-        <div class="wind2"></div>
-        <div class="wind-lines"></div>
-
         <!-- Runner -->
         <img src="runner.png" alt="Running Silhouette" class="runner">
         <div class="shadow"></div>
+
+        <!-- Wind Lines -->
+        <div class="wind-line wind-line-1"></div>
+        <div class="wind-line wind-line-2"></div>
+        <div class="wind-line wind-line-3"></div>
+        <div class="wind-line wind-line-4"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
@@ -139,46 +119,38 @@
             duration: 0.4
         });
 
-        // Wind effect animation
-        gsap.to(".wind", {
-            x: "-100vw",
-            duration: 6,
+        // Wind line animations
+        gsap.to(".wind-line-1", {
+            width: "15vw",
+            x: "120vw",
+            duration: 1.2,
             repeat: -1,
             ease: "linear"
         });
 
-        gsap.to(".wind2", {
-            x: "-120vw",
-            duration: 7,
+        gsap.to(".wind-line-2", {
+            width: "20vw",
+            x: "120vw",
+            duration: 1.4,
             repeat: -1,
             ease: "linear"
         });
 
-        // Create and animate wind lines for more visible wind
-        function createWindLines() {
-            const windLinesContainer = document.querySelector('.wind-lines');
-            for (let i = 0; i < 15; i++) {
-                let windLine = document.createElement('div');
-                windLine.classList.add('wind-line');
-                windLine.style.left = `${Math.random() * 100}vw`;
-                windLine.style.top = `${Math.random() * 100}vh`;
-                windLine.style.height = `${Math.random() * 20 + 10}vh`;
-                windLine.style.opacity = Math.random() * 0.5 + 0.2;
+        gsap.to(".wind-line-3", {
+            width: "25vw",
+            x: "120vw",
+            duration: 1.6,
+            repeat: -1,
+            ease: "linear"
+        });
 
-                windLinesContainer.appendChild(windLine);
-
-                // Animate each wind line
-                gsap.to(windLine, {
-                    x: "-120vw",
-                    duration: Math.random() * 2 + 1,
-                    repeat: -1,
-                    ease: "linear",
-                    delay: Math.random() * 2
-                });
-            }
-        }
-
-        createWindLines();
+        gsap.to(".wind-line-4", {
+            width: "30vw",
+            x: "120vw",
+            duration: 1.8,
+            repeat: -1,
+            ease: "linear"
+        });
     </script>
 </body>
 
