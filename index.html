@@ -135,13 +135,14 @@
     <script>
         // GSAP animation for runner and shadow
         gsap.to(".runner", {
-            x: "120vw",
-            ease: "power1.inOut",
-            duration: 8,
-            onComplete: () => {
-                window.location.href = "dashboard.html";
-            }
-        });
+    x: "120vw",
+    ease: "power1.inOut",
+    duration: 8,
+    onComplete: () => {
+        window.location.href = "dashboard.html"; // Immediate redirect
+    },
+    clearProps: "all" // Ensures all properties are cleared after animation
+});
 
         gsap.to(".shadow", {
             x: "120vw",
