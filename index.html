@@ -41,6 +41,9 @@
             background-color: #222;
             color: #fff;
         }
+        .container input[type="checkbox"] {
+            margin-right: 10px;
+        }
         .error-message {
             color: red;
             margin-bottom: 15px;
@@ -104,6 +107,7 @@
 </head>
 <body>
 
+<!-- Signup Form -->
 <div class="container" id="signup-container">
     <h2>Sign up</h2>
     <p id="signup-error" class="error-message">Please fill all fields before signing up!</p>
@@ -117,6 +121,13 @@
         <input type="password" placeholder="Re-enter Password" id="signup-repassword">
         <i onclick="togglePassword('signup-repassword')" class="fa fa-eye"></i>
     </div>
+
+    <!-- Terms and Conditions Checkbox -->
+    <div style="text-align: left; margin-bottom: 15px;">
+        <input type="checkbox" id="terms-checkbox" checked>
+        <label for="terms-checkbox">I agree to the <a href="#">terms and conditions</a></label>
+    </div>
+
     <button onclick="signUp()">Sign up</button>
     <div class="alt-login">
         <button onclick="navigateToGoogle()">Sign up with Google</button>
@@ -125,6 +136,7 @@
     <p>Already have an account? <a href="#" class="login-link" onclick="toggleForm()">Log in</a></p>
 </div>
 
+<!-- Login Form -->
 <div class="container" id="login-container" style="display: none;">
     <h2>Log in</h2>
     <p id="login-error" class="error-message">Please fill all fields before logging in!</p>
@@ -133,6 +145,13 @@
         <input type="password" placeholder="Password" id="login-password">
         <i onclick="togglePassword('login-password')" class="fa fa-eye"></i>
     </div>
+
+    <!-- Remember Me Checkbox -->
+    <div style="text-align: left; margin-bottom: 15px;">
+        <input type="checkbox" id="remember-me">
+        <label for="remember-me">Remember me</label>
+    </div>
+
     <button onclick="login()">Log in</button>
     <a href="#" class="forgot-password">Forgot your password?</a>
     <div class="alt-login">
@@ -143,6 +162,7 @@
 </div>
 
 <script>
+    // Function to toggle between login and signup forms
     function toggleForm() {
         let loginForm = document.getElementById('login-container');
         let signupForm = document.getElementById('signup-container');
@@ -155,6 +175,7 @@
         }
     }
 
+    // Function to toggle show/hide password
     function togglePassword(inputId) {
         let inputField = document.getElementById(inputId);
         let icon = inputField.nextElementSibling;
@@ -169,43 +190,50 @@
         }
     }
 
+    // Login function
     function login() {
         let email = document.getElementById('login-email').value;
         let password = document.getElementById('login-password').value;
+        let rememberMe = document.getElementById('remember-me').checked;
         let error = document.getElementById('login-error');
         
         if (email === "" || password === "") {
             error.style.display = "block";
         } else {
             error.style.display = "none";
-            // Add actual login logic here
-            alert("Logging in...");
+            // Actual login logic here
+            alert("Logging in... Remember me: " + rememberMe);
         }
     }
 
+    // Sign up function
     function signUp() {
         let name = document.getElementById('signup-name').value;
         let email = document.getElementById('signup-email').value;
         let password = document.getElementById('signup-password').value;
         let repassword = document.getElementById('signup-repassword').value;
+        let termsChecked = document.getElementById('terms-checkbox').checked;
         let error = document.getElementById('signup-error');
         
         if (name === "" || email === "" || password === "" || repassword === "") {
             error.style.display = "block";
+        } else if (!termsChecked) {
+            error.style.display = "block";
+            error.textContent = "You must agree to the terms and conditions!";
         } else {
             error.style.display = "none";
-            // Add actual signup logic here
+            // Actual signup logic here
             alert("Signing up...");
         }
     }
 
+    // Navigate to Google login/signup
     function navigateToGoogle() {
-        // Logic for navigating to Google sign-up/login screen
         alert("Navigating to Google sign-up/login screen.");
     }
 
+    // Navigate to number login/signup
     function navigateToNumber() {
-        // Logic for navigating to Number sign-up/login screen
         alert("Navigating to Number sign-up/login screen.");
     }
 </script>
