@@ -1,306 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Sign-up Page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background-color: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            width: 400px;
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-            text-align: center;
-        }
-        .container h2 {
-            margin-bottom: 20px;
-            color: #00d9ff;
-        }
-        .container input[type="email"], .container input[type="password"], .container input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #333;
-            border-radius: 5px;
-            background-color: #222;
-            color: #fff;
-        }
-        .container input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        .error-message {
-            color: red;
-            margin-bottom: 15px;
-            display: none;
-        }
-        .container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #00d9ff;
-            border: none;
-            border-radius: 5px;
-            color: #000;
-            font-size: 16px;
-            cursor: pointer;
-            margin-bottom: 15px;
-        }
-        .container button:hover {
-            background-color: #00a3d9;
-        }
-        .alt-login {
-            display: flex;
-            justify-content: space-between;
-            margin: 15px 0;
-        }
-        .alt-login button {
-            width: 48%;
-            background-color: #333;
-            color: #fff;
-            border: 1px solid #555;
-        }
-        .alt-login button:hover {
-            background-color: #555;
-        }
-        .toggle-eye {
-            position: relative;
-        }
-        .toggle-eye i {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-        }
-        .forgot-password {
-            color: #00d9ff;
-            margin-bottom: 15px;
-            display: block;
-            text-decoration: none;
-        }
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-        .signup-link, .login-link {
-            color: #00d9ff;
-            text-decoration: none;
-        }
-        .signup-link:hover, .login-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Signup</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="container">
+    <h2>Sign Up / Login</h2>
+    <div id="error-message"></div>
 
-<!-- Signup Form -->
-<div class="container" id="signup-container">
-    <h2>Sign up</h2>
-    <p id="signup-error" class="error-message">Please fill all fields before signing up!</p>
-    <input type="text" placeholder="Name" id="signup-name">
-    <input type="email" placeholder="Email" id="signup-email">
-    <div class="toggle-eye">
-        <input type="password" placeholder="Password" id="signup-password">
-        <i onclick="togglePassword('signup-password')" class="fa fa-eye"></i>
-    </div>
-    <div class="toggle-eye">
-        <input type="password" placeholder="Re-enter Password" id="signup-repassword">
-        <i onclick="togglePassword('signup-repassword')" class="fa fa-eye"></i>
-    </div>
+    <!-- Email Signup/Login Form -->
+    <form id="email-form">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Sign Up/Login with Email</button>
+    </form>
 
-    <!-- Terms and Conditions Checkbox -->
-    <div style="text-align: left; margin-bottom: 15px;">
-        <input type="checkbox" id="terms-checkbox" checked>
-        <label for="terms-checkbox">I agree to the <a href="#">terms and conditions</a></label>
-    </div>
+    <!-- Phone Signup/Login Form -->
+    <form id="phone-form">
+      <input type="text" id="phone-number" placeholder="Phone Number (+91)" required>
+      <div id="recaptcha-container"></div>
+      <button type="button" onclick="sendOTP()">Send OTP</button>
+    </form>
 
-    <button onclick="signUp()">Sign up</button>
-    <div class="alt-login">
-        <button onclick="navigateToGoogle()">Sign up with Google</button>
-        <button onclick="navigateToNumber()">Sign up with Number</button>
-    </div>
-    <p>Already have an account? <a href="#" class="login-link" onclick="toggleForm()">Log in</a></p>
-</div>
+    <!-- OTP Form -->
+    <form id="otp-form" style="display: none;">
+      <input type="text" id="otp" placeholder="Enter OTP" required>
+      <button type="button" onclick="verifyOTP()">Verify OTP</button>
+    </form>
+  </div>
 
-<!-- Login Form -->
-<div class="container" id="login-container" style="display: none;">
-    <h2>Log in</h2>
-    <p id="login-error" class="error-message">Please fill all fields before logging in!</p>
-    <input type="email" placeholder="Email" id="login-email">
-    <div class="toggle-eye">
-        <input type="password" placeholder="Password" id="login-password">
-        <i onclick="togglePassword('login-password')" class="fa fa-eye"></i>
-    </div>
-
-    <!-- Remember Me Checkbox -->
-    <div style="text-align: left; margin-bottom: 15px;">
-        <input type="checkbox" id="remember-me">
-        <label for="remember-me">Remember me</label>
-    </div>
-
-    <button onclick="login()">Log in</button>
-    <a href="#" class="forgot-password">Forgot your password?</a>
-    <div class="alt-login">
-        <button onclick="navigateToGoogle()">Log in with Google</button>
-        <button onclick="navigateToNumber()">Log in with Number</button>
-    </div>
-    <p>Don't have an account? <a href="#" class="signup-link" onclick="toggleForm()">Sign up</a></p>
-</div>
-
-<script>
-    // Function to toggle between login and signup forms
-    function toggleForm() {
-        let loginForm = document.getElementById('login-container');
-        let signupForm = document.getElementById('signup-container');
-        if (loginForm.style.display === "none") {
-            loginForm.style.display = "block";
-            signupForm.style.display = "none";
-        } else {
-            loginForm.style.display = "none";
-            signupForm.style.display = "block";
-        }
-    }
-
-    // Function to toggle show/hide password
-    function togglePassword(inputId) {
-        let inputField = document.getElementById(inputId);
-        let icon = inputField.nextElementSibling;
-        if (inputField.type === "password") {
-            inputField.type = "text";
-            icon.classList.remove('fa-eye');
-            icon.classList.add('fa-eye-slash');
-        } else {
-            inputField.type = "password";
-            icon.classList.remove('fa-eye-slash');
-            icon.classList.add('fa-eye');
-        }
-    }
-
-    // Login function
-    function login() {
-        let email = document.getElementById('login-email').value;
-        let password = document.getElementById('login-password').value;
-        let rememberMe = document.getElementById('remember-me').checked;
-        let error = document.getElementById('login-error');
-        
-        if (email === "" || password === "") {
-            error.style.display = "block";
-        } else {
-            error.style.display = "none";
-            // Actual login logic here
-            alert("Logging in... Remember me: " + rememberMe);
-        }
-    }
-
-    // Sign up function
-    function signUp() {
-        let name = document.getElementById('signup-name').value;
-        let email = document.getElementById('signup-email').value;
-        let password = document.getElementById('signup-password').value;
-        let repassword = document.getElementById('signup-repassword').value;
-        let termsChecked = document.getElementById('terms-checkbox').checked;
-        let error = document.getElementById('signup-error');
-        
-        if (name === "" || email === "" || password === "" || repassword === "") {
-            error.style.display = "block";
-        } else if (!termsChecked) {
-            error.style.display = "block";
-            error.textContent = "You must agree to the terms and conditions!";
-        } else {
-            error.style.display = "none";
-            // Actual signup logic here
-            alert("Signing up...");
-        }
-    }
-
-    // Navigate to Google login/signup
-    function navigateToGoogle() {
-        alert("Navigating to Google sign-up/login screen.");
-    }
-
-    // Navigate to number login/signup
-    function navigateToNumber() {
-        alert("Navigating to Number sign-up/login screen.");
-    }
-
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('sign-in-button', {
-  'size': 'invisible',
-  'callback': (response) => {
-    // reCAPTCHA solved, allow signInWithPhoneNumber.
-    onSignInSubmit();
-  }
-});
-
-    const phoneNumber = getPhoneNumberFromUserInput();
-const appVerifier = window.recaptchaVerifier;
-firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-    .then((confirmationResult) => {
-      // SMS sent. Prompt user to type the code from the message, then sign the
-      // user in with confirmationResult.confirm(code).
-      window.confirmationResult = confirmationResult;
-      // ...
-    }).catch((error) => {
-      // Error; SMS not sent
-      // ...
-    });
-
-    const code = getCodeFromUserInput();
-confirmationResult.confirm(code).then((result) => {
-  // User signed in successfully.
-  const user = result.user;
-  // ...
-}).catch((error) => {
-  // User couldn't sign in (bad verification code?)
-  // ...
-});
-
-    var credential = firebase.auth.PhoneAuthProvider.credential(confirmationResult.verificationId, code);
-
-    firebase.auth().signInWithCredential(credential);
-
-    // Turn off phone auth app verification.
-firebase.auth().settings.appVerificationDisabledForTesting = true;
-
-var phoneNumber = "+16505554567";
-var testVerificationCode = "123456";
-
-// This will render a fake reCAPTCHA as appVerificationDisabledForTesting is true.
-// This will resolve after rendering without app verification.
-var appVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-// signInWithPhoneNumber will call appVerifier.verify() which will resolve with a fake
-// reCAPTCHA response.
-firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-    .then(function (confirmationResult) {
-      // confirmationResult can resolve with the fictional testVerificationCode above.
-      return confirmationResult.confirm(testVerificationCode)
-    }).catch(function (error) {
-      // Error; SMS not sent
-      // ...
-    });
-
-    firebase.auth().signOut().then(() => {
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
-</script>
-
-<!-- Font Awesome for eye icon -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
+  <script src="/__/firebase/8.6.8/firebase-app.js"></script>
+  <script src="/__/firebase/8.6.8/firebase-auth.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
