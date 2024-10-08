@@ -1,266 +1,105 @@
-<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Wed May 17 2023 01:17:40 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="baseball-card-swiper.webflow.io" data-wf-page="6462b3481f79cdd0969036dc" data-wf-site="6462b3481f79cdd0969036d2" lang="en" class=" w-mod-js"><head><meta charset="utf-8"><title>Baseball Card Swiper</title><meta content="Discover a captivating collection of vintage baseball cards with an interactive slider powered by swiper.js." name="description"><meta content="Baseball Card Swiper" property="og:title"><meta content="Discover a captivating collection of vintage baseball cards with an interactive slider powered by swiper.js." property="og:description"><meta content="images/6463cae2ca7f9177e86ccf9a_opengraph.png" property="og:image"><meta content="Baseball Card Swiper" property="twitter:title"><meta content="Discover a captivating collection of vintage baseball cards with an interactive slider powered by swiper.js." property="twitter:description"><meta content="https://cdn.prod.website-files.com/6462b3481f79cdd0969036d2/6463cae2ca7f9177e86ccf9a_opengraph.png" property="twitter:image"><meta property="og:type" content="website"><meta content="summary_large_image" name="twitter:card"><meta content="width=device-width, initial-scale=1" name="viewport"><meta content="Webflow" name="generator"><link href="css/baseball-card-swiper.webflow.b901d92cc.css" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"><script src="js/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["DM Serif Display:regular,italic","DM Sans:regular,italic,500,500italic,700,700italic"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="images/6463c73c67674863aaa9a09e_favicon.png" rel="shortcut icon" type="image/x-icon"><link href="images/6463c8ad2581b7ed7ec7e289_webclip.png" rel="apple-touch-icon"><link rel="stylesheet" href="css/swiper-bundle.min.css">
-<style>
-.swiper-button-prev:after,
-.swiper-button-next:after {
-	content: ''!important;
-}
-.swiper-button-disabled {
-	-webkit-filter: grayscale(100%)!important;
-  filter: grayscale(100%)!important;
-}
-</style></head><body><div data-w-id="3f21a763-5cf5-52cf-f149-595297bfcaa0" style="opacity:0" class="page-wrapper"><div class="global-styles w-embed"><style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Webflow Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce7e1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .nutrition-facts {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            text-align: left;
+        }
+        .nutrition-facts span {
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .nutrition-facts span.highlight {
+            color: #13bdd8;
+            font-size: 24px;
+        }
+        .headline {
+            font-size: 42px;
+            font-weight: bold;
+            color: #7f4935;
+            margin: 20px 0;
+        }
+        .subheadline {
+            font-size: 36px;
+            font-weight: bold;
+            color: #b88261;
+        }
+        .text {
+            font-size: 18px;
+            color: #b88261;
+            margin-bottom: 20px;
+        }
+        .text span {
+            color: #ec9a54;
+            font-weight: bold;
+        }
+        .strawberry {
+            position: relative;
+            display: inline-block;
+        }
+        .strawberry img {
+            width: 300px;
+            border-radius: 50%;
+        }
+        .made-in-webflow {
+            display: inline-block;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 20px;
+            color: #000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nutrition-facts">
+            <span class="highlight">13g FAT</span>
+            <span>10g Sugar for Energy</span>
+            <span>3g Protein for Strength</span>
+            <span>1g Fiber for Poop</span>
+            <span>250 Calories</span>
+            <span>237ml (8FL OZ)</span>
+        </div>
 
-/* Make text look crisper and more legible in all browsers */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+        <h1 class="headline">IT'S EASY</h1>
+        <h2 class="subheadline">TO OVER DO IT.</h2>
+        <p class="text">Snackable, work or play. Enjoy <span>DONÜTS</span> any time you choose.</p>
+        <p class="text">For a <span>BOLD</span> flavour explosion, leave a can in your trunk for the weekend.</p>
 
-.post_body p {
-	margin-bottom: 1.5rem;
-}
+        <div class="strawberry">
+            <img src="https://images.unsplash.com/photo-1565987332110-fc195fbfdc6a" alt="Strawberry">
+        </div>
 
-.cursor_wrapper {
-	pointer-events: none;
-}
-
-.tag:last-of-type .tag_comma {
-	display: none;
-}
-
-/* Focus state style for keyboard navigation for the focusable elements */
-*[tabindex]:focus-visible,
-  input[type="file"]:focus-visible {
-   outline: 0.125rem solid #4d65ff;
-   outline-offset: 0.125rem;
-}
-
-/* Get rid of top margin on first element in any rich text element */
-.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
-  margin-top: 0 !important;
-}
-
-/* Get rid of bottom margin on last element in any rich text element */
-.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
-	margin-bottom: 0 !important;
-}
-
-/* Prevent all click and hover interaction with an element */
-.pointer-events-off {
-	pointer-events: none;
-}
-
-/* Enables all click and hover interaction with an element */
-.pointer-events-on {
-  pointer-events: auto;
-}
-
-/* Create a class of .div-square which maintains a 1:1 dimension of a div */
-.div-square::after {
-	content: "";
-	display: block;
-	padding-bottom: 100%;
-}
-
-/* Make sure containers never lose their center alignment */
-.container-medium,.container-small, .container-large {
-	margin-right: auto !important;
-  margin-left: auto !important;
-}
-
-/* 
-Make the following elements inherit typography styles from the parent and not have hardcoded values. 
-Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
-Uncomment this CSS to use it in the project. Leave this message for future hand-off.
-*/
-/*
-a,
-.w-input,
-.w-select,
-.w-tab-link,
-.w-nav-link,
-.w-dropdown-btn,
-.w-dropdown-toggle,
-.w-dropdown-link {
-  color: inherit;
-  text-decoration: inherit;
-  font-size: inherit;
-}
-*/
-/* Apply "..." after 4 lines of text */
-.text-style-4lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 4;
-	-webkit-box-orient: vertical;
-}
-
-/* Apply "..." after 3 lines of text */
-.text-style-3lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-}
-
-/* Apply "..." after 2 lines of text */
-.text-style-2lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-}
-/* Apply "..." after 1 line of text */
-.text-style-1line {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 1;
-	-webkit-box-orient: vertical;
-}
-
-/* Adds inline flex display */
-.display-inlineflex {
-  display: inline-flex;
-}
-
-/* These classes are never overwritten */
-.hide {
-  display: none !important;
-}
-
-@media screen and (max-width: 991px) {
-    .hide, .hide-tablet {
-        display: none !important;
-    }
-}
-  @media screen and (max-width: 767px) {
-    .hide-mobile-landscape{
-      display: none !important;
-    }
-}
-  @media screen and (max-width: 479px) {
-    .hide-mobile{
-      display: none !important;
-    }
-}
- 
-.margin-0 {
-  margin: 0rem !important;
-}
-  
-.padding-0 {
-  padding: 0rem !important;
-}
-
-.spacing-clean {
-padding: 0rem !important;
-margin: 0rem !important;
-}
-
-.margin-top {
-  margin-right: 0rem !important;
-  margin-bottom: 0rem !important;
-  margin-left: 0rem !important;
-}
-
-.padding-top {
-  padding-right: 0rem !important;
-  padding-bottom: 0rem !important;
-  padding-left: 0rem !important;
-}
-  
-.margin-right {
-  margin-top: 0rem !important;
-  margin-bottom: 0rem !important;
-  margin-left: 0rem !important;
-}
-
-.padding-right {
-  padding-top: 0rem !important;
-  padding-bottom: 0rem !important;
-  padding-left: 0rem !important;
-}
-
-.margin-bottom {
-  margin-top: 0rem !important;
-  margin-right: 0rem !important;
-  margin-left: 0rem !important;
-}
-
-.padding-bottom {
-  padding-top: 0rem !important;
-  padding-right: 0rem !important;
-  padding-left: 0rem !important;
-}
-
-.margin-left {
-  margin-top: 0rem !important;
-  margin-right: 0rem !important;
-  margin-bottom: 0rem !important;
-}
-  
-.padding-left {
-  padding-top: 0rem !important;
-  padding-right: 0rem !important;
-  padding-bottom: 0rem !important;
-}
-  
-.margin-horizontal {
-  margin-top: 0rem !important;
-  margin-bottom: 0rem !important;
-}
-
-.padding-horizontal {
-  padding-top: 0rem !important;
-  padding-bottom: 0rem !important;
-}
-
-.margin-vertical {
-  margin-right: 0rem !important;
-  margin-left: 0rem !important;
-}
-  
-.padding-vertical {
-  padding-right: 0rem !important;
-  padding-left: 0rem !important;
-}
-</style>
-
-<style>
-  html { font-size: calc(0.625rem + 0.41666666666666663vw); }
-  @media screen and (max-width:1920px) { html { font-size: calc(0.625rem + 0.41666666666666674vw); } }
-  @media screen and (max-width:1440px) { html { font-size: calc(0.8126951092611863rem + 0.20811654526534862vw); } }
-  @media screen and (max-width:479px) { html { font-size: calc(0.7494769874476988rem + 0.8368200836820083vw); } }
-</style></div><div class="main-wrapper"><section><div class="padding-section-large"><div class="padding-global"><div class="container-large"><div class="grid-double"><div id="w-node-_6eff0153-181a-79bb-3bc0-874705e044e5-969036dc" class="slider_left"><div class="swiper is-player w-dyn-list"><div role="list" class="swiper-wrapper is-player w-dyn-items"><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Ronald</h2><h2 class="heading-style-h1">Hoffman</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Left Field</div></div><div class="bio w-richtext"><p>Ronald Hoffman is an exceptional left fielder known for his exceptional contact hitting skills, currently playing for a minor league team based in Raleigh, NC. Standing at 6 feet tall, Hoffman possesses remarkable hand-eye coordination and a smooth, compact swing that allows him to consistently make solid contact with the baseball. His ability to spray line drives to all fields and consistently find the gaps has earned him a reputation as a reliable offensive force. Equally impressive is his defensive prowess, as he showcases excellent speed and agility in the outfield, making diving catches and covering ground with ease. Hoffman's dedication to the game, combined with his natural talent, make him a rising star to watch in the world of baseball.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Rod</h2><h2 class="heading-style-h1">Zacher</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">First Base</div></div><div class="bio w-richtext"><p>Rod Zacher is a formidable power-hitting first baseman currently making his mark in the minor league system of the Oakland baseball franchise. Standing at an imposing 6 feet 4 inches and weighing 240 pounds, Zacher's sheer strength and explosive swing have earned him a reputation as a true force at the plate. With a natural ability to drive the ball to all fields and a penchant for launching towering home runs, Zacher is a fearsome presence in any lineup. His dedication to honing his skills and unwavering work ethic have not gone unnoticed, making him a rising star to watch in the world of baseball.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Tom</h2><h2 class="heading-style-h1">Seaton</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Second Base</div></div><div class="bio w-richtext"><p>Known for his lightning-fast speed and exceptional fielding skills, Tom Seaton’s agility and quick reflexes make him a defensive powerhouse. Offensively, he consistently gets on base, utilizing his compact swing and excellent hand-eye coordination. With his infectious energy and never-give-up attitude, Tom inspires his teammates and serves as a role model for young athletes. As he strives to reach the majors, fans eagerly anticipate the day when Seaton’s exceptional talents will light up the diamond at the highest level.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Luke</h2><h2 class="heading-style-h1">Nagle</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Pitcher</div></div><div class="bio w-richtext"><p>Luke Nagle is a hard-throwing pitcher who brings the heat on the mound for a minor league team affiliated with the Los Angeles baseball organization. With a blazing fastball that consistently reaches the upper 90s, Nagle strikes fear into opposing batters with his sheer velocity and ability to overpower hitters. Standing at 6 feet 3 inches tall and possessing a solid frame, he generates impressive torque and leverage, adding extra zip to his pitches. Nagle's repertoire includes a devastating slider and a deceptive changeup, making him a formidable force in any pitching rotation. Known for his fierce competitiveness and unwavering focus, he is a rising star in the Los Angeles organization, poised to make a significant impact at higher levels of play.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Larry</h2><h2 class="heading-style-h1">Elberfeld</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Center Field</div></div><div class="bio w-richtext"><p>Larry Elberfeld is an exciting rookie center fielder displaying immense promise, currently making his mark in a New York minor league team. Standing at 6 feet 2 inches, Elberfeld possesses impressive athleticism and speed, allowing him to cover ground with ease in the outfield. His natural instincts and exceptional range make him a defensive standout, often making highlight-reel catches that leave spectators in awe. At the plate, Elberfeld exhibits a smooth and powerful swing, generating both contact and power. With each game, he continues to hone his skills and showcase his potential, making him a highly anticipated prospect in the New York organization. Larry Elberfeld's combination of defensive prowess, offensive ability, and relentless work ethic make him a rising star worth keeping an eye on in the world of baseball.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div></div></div></div><div id="w-node-_46a70a3a-44e5-b1a3-57f2-c6a24ad0b8e7-969036dc" class="slider_right"><div class="swiper is-card w-dyn-list"><div role="list" class="swiper-wrapper is-card w-dyn-items"><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462c14986aec741dff9ab74_hoffman.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462c14986aec741dff9ab74_hoffman-p-500.jpg 500w, images/6462c14986aec741dff9ab74_hoffman.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462bfacf4c769459171074d_zacher.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462bfacf4c769459171074d_zacher-p-500.jpg 500w, images/6462bfacf4c769459171074d_zacher.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462bf788b1022bf1975681e_seaton.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462bf788b1022bf1975681e_seaton-p-500.jpg 500w, images/6462bf788b1022bf1975681e_seaton.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462c0e5807d03c0a30186ab_nagle.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462c0e5807d03c0a30186ab_nagle-p-500.jpg 500w, images/6462c0e5807d03c0a30186ab_nagle.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462c3b5a7d9a36bc61d13ee_elberfeld.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462c3b5a7d9a36bc61d13ee_elberfeld-p-500.jpg 500w, images/6462c3b5a7d9a36bc61d13ee_elberfeld.jpg 580w" class="card"></div></div></div></div></div></div></div></div></section></div></div><script src="js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script><script src="js/webflow.060d0ea26.js" type="text/javascript"></script><script src="js/swiper-bundle.min.js"></script>
-<script>
-const swiperPlayer = new Swiper('.swiper.is-player', {
-	effect: 'fade',
-  fadeEffect: {
-    crossFade: true
-  },
-  followFinger: false,
-  keyboard: {
-    enabled: true,
-    onlyInViewport: false,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  initialSlide: 2,
-});
-
-const swiperCard = new Swiper('.swiper.is-card', {
-  effect: 'cards',
-  grabCursor: true,
-  cardsEffect: {
-    slideShadows: false
-  },
-  initialSlide: 2,
-});
-
-swiperPlayer.controller.control = swiperCard;
-swiperCard.controller.control = swiperPlayer;
-</script></body></html>
+        <a href="#" class="made-in-webflow">Made in Webflow</a>
+    </div>
+</body>
+</html>
