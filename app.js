@@ -1,3 +1,38 @@
+// Sign Up Logic
+document.getElementById("signup-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  const terms = document.getElementById("terms").checked;
+
+  if (password !== confirmPassword) {
+    document.getElementById("error-message").innerText = "Passwords do not match!";
+    return;
+  }
+
+  if (!terms) {
+    document.getElementById("error-message").innerText = "You must agree to the terms and conditions.";
+    return;
+  }
+
+  try {
+    // Create User with Email and Password
+    const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const user = userCredential.user;
+
+    // Optionally, you can save the username in your database
+
+    document.getElementById("error-message").innerText = "Account created successfully!";
+    // Redirect or do further actions after signup
+
+  } catch (error) {
+    document.getElementById("error-message").innerText = error.message;
+  }
+});
+
 // Switch to Signup Form
 document.getElementById("show-signup").addEventListener("click", (e) => {
   e.preventDefault();
