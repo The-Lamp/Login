@@ -21,12 +21,12 @@ const auth = getAuth(app);
 document.getElementById("signup-form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const username = document.getElementById("username").value;
   const email = document.getElementById("signup-email").value;
   const password = document.getElementById("signup-password").value;
   const confirmPassword = document.getElementById("confirm-password").value;
   const terms = document.getElementById("terms").checked;
 
+  // Validation
   if (password !== confirmPassword) {
     document.getElementById("error-message").innerText = "Passwords do not match!";
     return;
@@ -41,16 +41,41 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
     // Create User with Email and Password
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-
-    // Optionally, you can save the username in your database
-    document.getElementById("error-message").innerText = "Account created successfully!";
+    console.log("Account created successfully: ", user);
 
     // Redirect to dashboard.html after signup
     window.location.href = 'dashboard.html';
-
   } catch (error) {
+    console.error("Signup error: ", error);
     document.getElementById("error-message").innerText = error.message;
   }
+});
+
+// Email Sign Up/Login
+const emailForm = document.getElementById("email-form");
+emailForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Successful login
+      const user = userCredential.user;
+      console.log("Logged in successfully: ", user);
+
+      // Redirect to dashboard.html after login
+      window.location.href = 'dashboard.html';
+    })
+    .catch((error) => {
+      console.error("Login error: ", error);
+      if (error.code === 'auth/user-not-found') {
+        document.getElementById("error-message").textContent = "User not found. Please create an account.";
+      } else {
+        document.getElementById("error-message").textContent = error.message;
+      }
+    });
 });
 
 // Switch to Signup Form
@@ -71,39 +96,6 @@ document.getElementById("show-login").addEventListener("click", (e) => {
   document.getElementById("signup-form").style.display = "none"; // Hide signup form
   document.getElementById("phone-form").style.display = "none"; // Hide phone form
   document.getElementById("otp-form").style.display = "none"; // Hide OTP form
-});
-
-// Switch to Login from OTP Form
-document.getElementById("show-login-otp").addEventListener("click", (e) => {
-  e.preventDefault();
-  document.getElementById("form-title").textContent = "Login";
-  document.getElementById("email-form").style.display = "block"; // Show email form
-  document.getElementById("phone-form").style.display = "none"; // Hide phone form
-  document.getElementById("otp-form").style.display = "none"; // Hide OTP form
-});
-
-// Email Sign Up/Login
-const emailForm = document.getElementById("email-form");
-emailForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log("Logged in:", userCredential.user);
-      
-      // Redirect to dashboard.html after successful login
-      window.location.href = 'dashboard.html';
-    })
-    .catch((error) => {
-      if (error.code === 'auth/user-not-found') {
-        document.getElementById("error-message").textContent = "User not found. Please create an account.";
-      } else {
-        document.getElementById("error-message").textContent = error.message;
-      }
-    });
 });
 
 // Phone Number Login
@@ -137,8 +129,8 @@ function verifyOTP() {
 
   window.confirmationResult.confirm(otp)
     .then((result) => {
-      console.log("Logged in:", result.user);
-      
+      console.log("Logged in successfully: ", result.user);
+
       // Redirect to dashboard.html after successful OTP verification
       window.location.href = 'dashboard.html';
     })
