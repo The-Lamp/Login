@@ -1,136 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>FAQs Page</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #d0f4f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #000;
-    }
-
-    .container {
-      background-color: #e0f7f5;
-      border: 2px solid #000;
-      border-radius: 15px;
-      width: 350px;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 40px;
-      font-weight: 900; /* Extra bold to match the image */
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      font-family: 'Impact', 'Arial Black', sans-serif; /* A thicker font */
-    }
-
-    p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .section {
-      border-top: 1px solid #000;
-      margin: 20px 0;
-      padding-top: 10px;
-    }
-
-    .section h2 {
-      font-size: 18px;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-    }
-
-    .section h2 .circle {
-      width: 25px;
-      height: 25px;
-      border: 2px solid #000;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      line-height: 18px;
-    }
-
-    .section-content {
-      display: none;
-      margin-top: 10px;
-    }
-
-    .section h2.active + .section-content {
-      display: block;
-    }
-
-    /* Additional styles for active sections */
-    .section h2.active .circle {
-      content: "-";
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign-up Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            color: #00d9ff;
+        }
+        .container input[type="email"], .container input[type="password"], .container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #222;
+            color: #fff;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00d9ff;
+            border: none;
+            border-radius: 5px;
+            color: #000;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .container button:hover {
+            background-color: #00a3d9;
+        }
+        .alt-login {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+        .alt-login button {
+            width: 48%;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #555;
+        }
+        .alt-login button:hover {
+            background-color: #555;
+        }
+        .toggle-eye {
+            position: relative;
+        }
+        .toggle-eye i {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .forgot-password {
+            color: #00d9ff;
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+        .signup-link, .login-link {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+        .signup-link:hover, .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>STAY BORED</h1>
-    <p>Join our email list for promotions, giveaways, and other communications from the cows.</p>
-
-    <div class="section">
-      <h2>SHOP <span class="circle">+</span></h2>
-      <div class="section-content">
-        <p>Shop for exclusive cow-related merchandise!</p>
-      </div>
+<div class="container" id="login-container">
+    <h2>Log in</h2>
+    <input type="email" placeholder="Email" id="login-email">
+    <div class="toggle-eye">
+        <input type="password" placeholder="Password" id="login-password">
+        <i onclick="togglePassword('login-password')" class="fa fa-eye"></i>
     </div>
-
-    <div class="section">
-      <h2>LEARN <span class="circle">+</span></h2>
-      <div class="section-content">
-        <p>Learn more about cows and their lifestyle!</p>
-      </div>
+    <button>Log in</button>
+    <a href="#" class="forgot-password">Forgot your password?</a>
+    <div class="alt-login">
+        <button onclick="loginWithGoogle()">Log in with Google</button>
+        <button onclick="loginWithNumber()">Log in with Number</button>
     </div>
+    <p>Don't have an account? <a href="#" class="signup-link" onclick="toggleForm()">Sign up</a></p>
+</div>
 
-    <div class="section">
-      <h2>BORED? <span class="circle">+</span></h2>
-      <div class="section-content">
-        <p>Feeling bored? Here's something fun about cows.</p>
-      </div>
+<div class="container" id="signup-container" style="display: none;">
+    <h2>Sign up</h2>
+    <input type="text" placeholder="Name" id="signup-name">
+    <input type="email" placeholder="Email" id="signup-email">
+    <div class="toggle-eye">
+        <input type="password" placeholder="Password" id="signup-password">
+        <i onclick="togglePassword('signup-password')" class="fa fa-eye"></i>
     </div>
-
-    <div class="section">
-      <h2>SUPPORT <span class="circle">+</span></h2>
-      <div class="section-content">
-        <p>Contact us for support regarding any queries.</p>
-      </div>
+    <div class="toggle-eye">
+        <input type="password" placeholder="Re-enter Password" id="signup-repassword">
+        <i onclick="togglePassword('signup-repassword')" class="fa fa-eye"></i>
     </div>
-  </div>
+    <button>Sign up</button>
+    <div class="alt-login">
+        <button onclick="signUpWithGoogle()">Sign up with Google</button>
+        <button onclick="signUpWithNumber()">Sign up with Number</button>
+    </div>
+    <p>Already have an account? <a href="#" class="login-link" onclick="toggleForm()">Log in</a></p>
+</div>
 
-  <script>
-    const sections = document.querySelectorAll('.section h2');
-    sections.forEach(section => {
-      section.addEventListener('click', () => {
-        section.classList.toggle('active');
-        const circle = section.querySelector('.circle');
-        circle.textContent = circle.textContent === "+" ? "-" : "+";
-      });
-    });
-  </script>
-  
+<script>
+    function toggleForm() {
+        let loginForm = document.getElementById('login-container');
+        let signupForm = document.getElementById('signup-container');
+        if (loginForm.style.display === "none") {
+            loginForm.style.display = "block";
+            signupForm.style.display = "none";
+        } else {
+            loginForm.style.display = "none";
+            signupForm.style.display = "block";
+        }
+    }
+
+    function togglePassword(inputId) {
+        let inputField = document.getElementById(inputId);
+        let icon = inputField.nextElementSibling;
+        if (inputField.type === "password") {
+            inputField.type = "text";
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            inputField.type = "password";
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+
+    function loginWithGoogle() {
+        alert('Login with Google functionality to be added.');
+    }
+
+    function loginWithNumber() {
+        alert('Login with Number functionality to be added.');
+    }
+
+    function signUpWithGoogle() {
+        alert('Sign up with Google functionality to be added.');
+    }
+
+    function signUpWithNumber() {
+        alert('Sign up with Number functionality to be added.');
+    }
+</script>
+
+<!-- Font Awesome for eye icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
