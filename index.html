@@ -1,158 +1,266 @@
-<!DOCTYPE html>
-<!-- Last Published: Tue Dec 13 2022 17:03:44 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="tricks-menu-slider.webflow.io" data-wf-page="6067559c86540c204619c4d7" data-wf-site="6067559c86540cc17e19c4d5"><head><meta charset="utf-8"><title>T.RICKS Menu + Slider</title><meta content="T.RICKS Menu + Slider" property="og:title"><meta content="https://cdn.prod.website-files.com/6067559c86540cc17e19c4d5/6067567909caee35fc982255_social-share.jpeg" property="og:image"><meta content="T.RICKS Menu + Slider" property="twitter:title"><meta content="https://cdn.prod.website-files.com/6067559c86540cc17e19c4d5/6067567909caee35fc982255_social-share.jpeg" property="twitter:image"><meta content="width=device-width, initial-scale=1" name="viewport"><link href="https://assets.website-files.com/6067559c86540cc17e19c4d5/css/tricks-menu-slider.24cda8f53.css" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"><script src="js/1.6.26-webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Poppins:300,regular"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="favicons/6067559c86540cc17e19c4d5-6067566a673c6f97af73f940_favicon.png" rel="shortcut icon" type="image/x-icon"><link href="favicons/6067559c86540cc17e19c4d5-6067566d007a388ab94a6627_appicon.png" rel="apple-touch-icon"><style>
-::selection {background: #000000; color: #FFFFFF; text-shadow: none;}
-</style><style>
-.nav-link__contain, .sublink__contain {
-	opacity: 0;
+<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Wed May 17 2023 01:17:40 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="baseball-card-swiper.webflow.io" data-wf-page="6462b3481f79cdd0969036dc" data-wf-site="6462b3481f79cdd0969036d2" lang="en" class=" w-mod-js"><head><meta charset="utf-8"><title>Baseball Card Swiper</title><meta content="Discover a captivating collection of vintage baseball cards with an interactive slider powered by swiper.js." name="description"><meta content="Baseball Card Swiper" property="og:title"><meta content="Discover a captivating collection of vintage baseball cards with an interactive slider powered by swiper.js." property="og:description"><meta content="images/6463cae2ca7f9177e86ccf9a_opengraph.png" property="og:image"><meta content="Baseball Card Swiper" property="twitter:title"><meta content="Discover a captivating collection of vintage baseball cards with an interactive slider powered by swiper.js." property="twitter:description"><meta content="https://cdn.prod.website-files.com/6462b3481f79cdd0969036d2/6463cae2ca7f9177e86ccf9a_opengraph.png" property="twitter:image"><meta property="og:type" content="website"><meta content="summary_large_image" name="twitter:card"><meta content="width=device-width, initial-scale=1" name="viewport"><meta content="Webflow" name="generator"><link href="css/baseball-card-swiper.webflow.b901d92cc.css" rel="stylesheet" type="text/css"><link href="https://fonts.googleapis.com" rel="preconnect"><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"><script src="js/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["DM Serif Display:regular,italic","DM Sans:regular,italic,500,500italic,700,700italic"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="images/6463c73c67674863aaa9a09e_favicon.png" rel="shortcut icon" type="image/x-icon"><link href="images/6463c8ad2581b7ed7ec7e289_webclip.png" rel="apple-touch-icon"><link rel="stylesheet" href="css/swiper-bundle.min.css">
+<style>
+.swiper-button-prev:after,
+.swiper-button-next:after {
+	content: ''!important;
 }
-.splide__track {
-	overflow: visible !important;
+.swiper-button-disabled {
+	-webkit-filter: grayscale(100%)!important;
+  filter: grayscale(100%)!important;
 }
-</style></head><body><div class="overflow"><div class="global"><div class="cursor"><div class="cursor__dot1"></div><div class="cursor__dot2"><p class="cursor__text">DRAG</p></div></div><div id="top" class="html w-embed"><style>
-@media only screen and (min-width: 2000px) {
-     body {font-size: 20px;}
+</style></head><body><div data-w-id="3f21a763-5cf5-52cf-f149-595297bfcaa0" style="opacity:0" class="page-wrapper"><div class="global-styles w-embed"><style>
+
+/* Make text look crisper and more legible in all browsers */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.trigger__circle, .cursor, .slider__wave {
+.post_body p {
+	margin-bottom: 1.5rem;
+}
+
+.cursor_wrapper {
 	pointer-events: none;
 }
 
-a {
-	color: inherit;
-}
-
-.slider__wave svg path {
-	pointer-events: auto;
-}
-
-body:hover .cursor {
-	opacity: 1.0;
-}
-
-.control {
-	-webkit-mask-image: -webkit-radial-gradient(white, black);
-}
-</style></div><nav class="section is--nav"><div class="menu"><div class="background"><div class="background__fill"></div><div data-is-ix2-target="1" class="background__lottie" data-w-id="d1b7ff9d-378f-2096-9af3-41854fff6555" data-animation-type="lottie" data-src="https://cdn.prod.website-files.com/6067559c86540cc17e19c4d5/6068cf09c306d407f16fb153_menu-wave.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="1.5666666666666667" data-duration="0" data-ix2-initial-state="0"></div></div><div class="container is--menu"><div class="menu__contain"><div class="menu__left"><a href="https://wizardry-technique.webflow.io/" target="_blank" class="nav-link is--1 w-inline-block"><img src="images/6067559c86540cc17e19c4d5-6068d433f45cd359816c56d9_new-wizardry.gif" loading="lazy" alt="" class="nav-link__img"><div class="nav-link__line"></div><div class="nav-link__contain"><p class="nav-link__text">Wizardry</p><p class="nav-link__num">01</p></div></a><a href="https://www.patreon.com/timothyricks" target="_blank" class="nav-link w-inline-block"><img src="images/6067559c86540cc17e19c4d5-6068d432c984667f71bf90b9_new-patreon.gif" loading="lazy" alt="" class="nav-link__img"><div class="nav-link__line"></div><div class="nav-link__contain"><p class="nav-link__text">Patreon</p><p class="nav-link__num">02</p></div></a><a href="http://www.youtube.com/c/timothy-ricks" target="_blank" class="nav-link is--3 w-inline-block"><img src="images/6067559c86540cc17e19c4d5-6068d432934dc41264f4089e_new-youtube.gif" loading="lazy" alt="" class="nav-link__img"><div class="nav-link__line"></div><div class="nav-link__contain"><p class="nav-link__text">YouTube</p><p class="nav-link__num">03</p></div></a></div><div class="menu__right"><img src="images/6067559c86540cc17e19c4d5-60687c1ff45cd37c936af69c_menu-graphic.svg" loading="lazy" alt="" class="menu__icon"><div class="sublinks"><a href="https://www.timothyricks.com/" target="_blank" class="sublink w-inline-block"><div class="sublink__contain"><p class="sublink__text">Consulting</p><div class="sublink__line"></div></div></a><a href="https://www.notion.so/timothyricks/9c289f61652d457797b1251cdf9beb61?v=873f669610044b2b9e9d46d043dfa380" target="_blank" class="sublink w-inline-block"><div class="sublink__contain"><p class="sublink__text">Custom Code</p><div class="sublink__line"></div></div></a><a href="https://webflow.com/tricks" target="_blank" class="sublink w-inline-block"><div class="sublink__contain"><p class="sublink__text">Cloneables</p><div class="sublink__line"></div></div></a></div></div></div></div></div><div class="container is--nav"><a href="#" class="nav__logo w-inline-block"><div class="nav__svg w-embed"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 107 24" enable-background="new 0 0 107 24" xml:space="preserve">
-<g>
-	<polygon fill="currentColor" points="16.241,0.363 0,0.363 0,5.343 5.652,5.343 5.652,23.643 10.589,23.643 10.589,5.343 16.241,5.343 	
-		"></polygon>
-	<rect x="12.612" y="19.443" fill="currentColor" width="4.164" height="4.2"></rect>
-	<rect x="39.204" y="0.363" fill="currentColor" width="4.938" height="23.34"></rect>
-	<path fill="currentColor" d="M54.553,5.943c1.785-1.2,4.105-1.26,5.89-0.12c0.892,0.54,1.606,1.32,2.201,2.22h5.414
-		c-0.476-1.5-1.249-2.94-2.32-4.14c-1.011-1.2-2.261-2.22-3.688-2.88c-1.428-0.66-2.915-1.02-4.462-1.02
-		c-1.963,0-3.867,0.54-5.592,1.62c-1.725,1.08-3.094,2.58-4.045,4.38c-1.011,1.86-1.487,3.9-1.487,6s0.535,4.14,1.547,6
-		c0.952,1.8,2.32,3.3,4.045,4.38c1.666,1.08,3.569,1.62,5.533,1.62c1.547,0,3.093-0.36,4.462-1.02c1.368-0.66,2.617-1.62,3.629-2.82
-		c1.011-1.26,1.844-2.64,2.32-4.14l-5.414,0.06c-0.535,0.84-1.309,1.62-2.201,2.16c-1.785,1.14-4.105,1.02-5.83-0.18
-		c-0.952-0.66-1.725-1.56-2.261-2.58c-0.535-1.08-0.833-2.28-0.833-3.48c0-1.2,0.297-2.4,0.892-3.48
-		C52.827,7.443,53.601,6.603,54.553,5.943z"></path>
-	<polygon fill="currentColor" points="83.941,0.363 75.018,12.003 75.018,0.363 70.021,0.363 70.021,23.703 75.018,23.703 75.018,12.003 
-		83.941,23.643 90.188,23.643 81.264,12.003 90.188,0.363 	"></polygon>
-	<path fill="currentColor" d="M105.774,13.683c-0.654-1.02-1.546-1.92-2.617-2.52l-5.89-3.48c-0.417-0.18-0.714-0.6-0.714-1.08
-		c0-0.48,0.238-0.84,0.595-1.08c0.416-0.3,0.952-0.42,1.487-0.42c0.654-0.06,1.309,0.18,1.784,0.6c0.417,0.36,0.655,0.96,0.655,1.56
-		h4.997c0-1.26-0.298-2.46-0.833-3.54c-0.595-1.14-1.487-2.1-2.558-2.7c-1.249-0.66-2.618-1.02-4.045-0.96
-		c-1.309-0.06-2.618,0.24-3.807,0.84c-1.13,0.48-2.082,1.32-2.796,2.34c-0.654,0.96-1.011,2.1-1.011,3.24c0,1.08,0.297,2.1,0.833,3
-		c0.595,0.96,1.428,1.74,2.38,2.34l5.949,3.54c0.655,0.3,1.012,0.96,1.071,1.62c0,0.6-0.357,1.14-0.833,1.44
-		c-0.595,0.42-1.308,0.6-2.022,0.6c-0.773,0-1.547-0.3-2.082-0.84c-0.654-0.66-0.952-1.5-0.892-2.34h-5.235
-		c-0.119,1.68,0.357,3.36,1.309,4.8c0.773,1.14,1.785,1.98,3.034,2.52c1.249,0.54,2.558,0.78,3.867,0.78
-		c1.428,0,2.855-0.3,4.164-0.96c1.19-0.6,2.261-1.5,3.034-2.58c0.714-1.02,1.13-2.22,1.13-3.48
-		C106.726,15.783,106.369,14.643,105.774,13.683z"></path>
-	<path fill="currentColor" d="M33.255,11.643c0.714-1.14,1.071-2.46,1.071-3.78c0-0.96-0.179-1.86-0.535-2.76
-		c-0.357-0.9-0.892-1.74-1.547-2.46c-0.714-0.72-1.487-1.26-2.38-1.68c-0.892-0.42-1.785-0.6-2.737-0.6h-8.329v23.28h4.938v-8.76
-		h0.535l6.722,8.88H37.3l-7.317-9.54C31.292,13.683,32.422,12.783,33.255,11.643z M29.329,7.803c0,1.2-1.011,2.16-2.201,2.1h-3.45
-		v-4.56h3.391c0.06,0,0.119,0,0.179,0c1.19,0.06,2.142,1.08,2.082,2.28C29.329,7.683,29.329,7.743,29.329,7.803z"></path>
-</g>
-</svg></div></a><a href="#top" class="trigger w-inline-block"><div class="trigger__circle"></div><div class="trigger__line is--1"></div><div class="trigger__line is--2"></div></a></div></nav></div><section class="section is--hero"><div class="container is--hero"><div class="hero__wrap"><h1>Becoming a webflow wizard</h1><p class="hero__p">Interactions, Layout, &amp; Custom Code</p></div></div></section><section class="section is--slider"><div class="slider__wave w-embed"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 804 50.167" enable-background="new 0 0 804 50.167" xml:space="preserve">
-<path fill="#E9C6DD" d="M804,0v16.671c0,0-204.974,33.496-401.995,33.496C204.974,50.167,0,16.671,0,16.671V0H804z"></path>
-</svg></div><div class="container is--slider"><div class="splide"><div class="splide__track w-dyn-list"><div role="list" class="splide__list w-dyn-items"><div role="listitem" class="splide__slide w-dyn-item"><img src="images/6068671735ae6e60c1a497a3-606867de25efbebb66c27220_photo1.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 88vw, 30vw" srcset="https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867de25efbebb66c27220_photo1-p-500.jpeg 500w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867de25efbebb66c27220_photo1-p-800.jpeg 800w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867de25efbebb66c27220_photo1-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867de25efbebb66c27220_photo1.jpg 1500w" class="splide__img"></div><div role="listitem" class="splide__slide w-dyn-item"><img src="images/6068671735ae6e60c1a497a3-606867f21e205c04eda17081_photo2.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 88vw, 30vw" srcset="https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867f21e205c04eda17081_photo2-p-500.jpeg 500w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867f21e205c04eda17081_photo2-p-800.jpeg 800w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867f21e205c04eda17081_photo2-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867f21e205c04eda17081_photo2.jpg 1333w" class="splide__img"></div><div role="listitem" class="splide__slide w-dyn-item"><img src="images/6068671735ae6e60c1a497a3-606867fb25efbe5b91c272b6_photo3.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 88vw, 30vw" srcset="https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867fb25efbe5b91c272b6_photo3-p-500.jpeg 500w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867fb25efbe5b91c272b6_photo3-p-800.jpeg 800w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867fb25efbe5b91c272b6_photo3-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606867fb25efbe5b91c272b6_photo3.jpg 1333w" class="splide__img"></div><div role="listitem" class="splide__slide w-dyn-item"><img src="images/6068671735ae6e60c1a497a3-6068680904d7b92afa7ba883_photo4.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 88vw, 30vw" srcset="https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068680904d7b92afa7ba883_photo4-p-500.jpeg 500w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068680904d7b92afa7ba883_photo4-p-800.jpeg 800w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068680904d7b92afa7ba883_photo4-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068680904d7b92afa7ba883_photo4.jpg 1600w" class="splide__img"></div><div role="listitem" class="splide__slide w-dyn-item"><img src="images/6068671735ae6e60c1a497a3-6068681573e52211e9e86b5f_photo5.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 88vw, 30vw" srcset="https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068681573e52211e9e86b5f_photo5-p-500.jpeg 500w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068681573e52211e9e86b5f_photo5-p-800.jpeg 800w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068681573e52211e9e86b5f_photo5-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/6068681573e52211e9e86b5f_photo5.jpg 1333w" class="splide__img"></div><div role="listitem" class="splide__slide w-dyn-item"><img src="images/6068671735ae6e60c1a497a3-606868d3b9a1850ee2de4ff6_photo6.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 88vw, 30vw" srcset="https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868d3b9a1850ee2de4ff6_photo6-p-500.jpeg 500w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868d3b9a1850ee2de4ff6_photo6-p-800.jpeg 800w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868d3b9a1850ee2de4ff6_photo6-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868d3b9a1850ee2de4ff6_photo6.jpg 1333w" class="splide__img"></div><div role="listitem" class="splide__slide w-dyn-item"><img src="images/6068671735ae6e60c1a497a3-606868dc16f37465c307811e_photo7.jpg" loading="lazy" alt="" sizes="(max-width: 767px) 88vw, 30vw" srcset="https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868dc16f37465c307811e_photo7-p-500.jpeg 500w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868dc16f37465c307811e_photo7-p-800.jpeg 800w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868dc16f37465c307811e_photo7-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/6068671735ae6e60c1a497a3/606868dc16f37465c307811e_photo7.jpg 1600w" class="splide__img"></div></div></div></div></div><div class="slider__wave is--bottom w-embed"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 804 50.167" enable-background="new 0 0 804 50.167" xml:space="preserve">
-<path fill="#E9C6DD" d="M804,0v16.671c0,0-204.974,33.496-401.995,33.496C204.974,50.167,0,16.671,0,16.671V0H804z"></path>
-</svg></div><div class="controls"><a data-w-id="649ccfd8-0383-398e-fb72-93e440f55882" href="#" class="control prev-splide w-inline-block"><div class="control__fill"></div><div class="control__arrow w-embed"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 24 18">
-<path fill="currentColor" d="M23.999,8H5.481c5.009-2.91,6.349-7.311,6.416-7.548L9.976-0.102C9.9,0.156,8.03,6.213-0.073,8.024L0.146,9
-	l-0.218,0.976C8.03,11.787,9.9,17.844,9.976,18.101l1.922-0.554C11.83,17.31,10.49,12.91,5.481,10h18.518V8z"></path>
-</svg></div></a><a href="#" class="control next-splide w-inline-block"><div class="control__fill"></div><div class="control__arrow is--flipped w-embed"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 24 18">
-<path fill="currentColor" d="M23.999,8H5.481c5.009-2.91,6.349-7.311,6.416-7.548L9.976-0.102C9.9,0.156,8.03,6.213-0.073,8.024L0.146,9
-	l-0.218,0.976C8.03,11.787,9.9,17.844,9.976,18.101l1.922-0.554C11.83,17.31,10.49,12.91,5.481,10h18.518V8z"></path>
-</svg></div></a></div></section></div><script src="js/js-jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="js/js-tricks-menu-slider.00af47acc.js" type="text/javascript"></script><style>
-.splide__arrow.splide__arrow--next, .splide__arrow.splide__arrow--prev, .splide__pagination {
+.tag:last-of-type .tag_comma {
 	display: none;
 }
 
-.splide *:focus { outline: none; }
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+   outline: 0.125rem solid #4d65ff;
+   outline-offset: 0.125rem;
+}
+
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+	margin-bottom: 0 !important;
+}
+
+/* Prevent all click and hover interaction with an element */
+.pointer-events-off {
+	pointer-events: none;
+}
+
+/* Enables all click and hover interaction with an element */
+.pointer-events-on {
+  pointer-events: auto;
+}
+
+/* Create a class of .div-square which maintains a 1:1 dimension of a div */
+.div-square::after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+	margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* 
+Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+*/
+/*
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+}
+*/
+/* Apply "..." after 4 lines of text */
+.text-style-4lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+/* Apply "..." after 1 line of text */
+.text-style-1line {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+        display: none !important;
+    }
+}
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+}
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+}
+ 
+.margin-0 {
+  margin: 0rem !important;
+}
+  
+.padding-0 {
+  padding: 0rem !important;
+}
+
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+  
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+  
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+  
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+  
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
 </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.6/dist/css/splide.min.css">
-<script src="js/js-splide.min.js"></script>
+
+<style>
+  html { font-size: calc(0.625rem + 0.41666666666666663vw); }
+  @media screen and (max-width:1920px) { html { font-size: calc(0.625rem + 0.41666666666666674vw); } }
+  @media screen and (max-width:1440px) { html { font-size: calc(0.8126951092611863rem + 0.20811654526534862vw); } }
+  @media screen and (max-width:479px) { html { font-size: calc(0.7494769874476988rem + 0.8368200836820083vw); } }
+</style></div><div class="main-wrapper"><section><div class="padding-section-large"><div class="padding-global"><div class="container-large"><div class="grid-double"><div id="w-node-_6eff0153-181a-79bb-3bc0-874705e044e5-969036dc" class="slider_left"><div class="swiper is-player w-dyn-list"><div role="list" class="swiper-wrapper is-player w-dyn-items"><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Ronald</h2><h2 class="heading-style-h1">Hoffman</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Left Field</div></div><div class="bio w-richtext"><p>Ronald Hoffman is an exceptional left fielder known for his exceptional contact hitting skills, currently playing for a minor league team based in Raleigh, NC. Standing at 6 feet tall, Hoffman possesses remarkable hand-eye coordination and a smooth, compact swing that allows him to consistently make solid contact with the baseball. His ability to spray line drives to all fields and consistently find the gaps has earned him a reputation as a reliable offensive force. Equally impressive is his defensive prowess, as he showcases excellent speed and agility in the outfield, making diving catches and covering ground with ease. Hoffman's dedication to the game, combined with his natural talent, make him a rising star to watch in the world of baseball.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Rod</h2><h2 class="heading-style-h1">Zacher</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">First Base</div></div><div class="bio w-richtext"><p>Rod Zacher is a formidable power-hitting first baseman currently making his mark in the minor league system of the Oakland baseball franchise. Standing at an imposing 6 feet 4 inches and weighing 240 pounds, Zacher's sheer strength and explosive swing have earned him a reputation as a true force at the plate. With a natural ability to drive the ball to all fields and a penchant for launching towering home runs, Zacher is a fearsome presence in any lineup. His dedication to honing his skills and unwavering work ethic have not gone unnoticed, making him a rising star to watch in the world of baseball.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Tom</h2><h2 class="heading-style-h1">Seaton</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Second Base</div></div><div class="bio w-richtext"><p>Known for his lightning-fast speed and exceptional fielding skills, Tom Seaton’s agility and quick reflexes make him a defensive powerhouse. Offensively, he consistently gets on base, utilizing his compact swing and excellent hand-eye coordination. With his infectious energy and never-give-up attitude, Tom inspires his teammates and serves as a role model for young athletes. As he strives to reach the majors, fans eagerly anticipate the day when Seaton’s exceptional talents will light up the diamond at the highest level.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Luke</h2><h2 class="heading-style-h1">Nagle</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Pitcher</div></div><div class="bio w-richtext"><p>Luke Nagle is a hard-throwing pitcher who brings the heat on the mound for a minor league team affiliated with the Los Angeles baseball organization. With a blazing fastball that consistently reaches the upper 90s, Nagle strikes fear into opposing batters with his sheer velocity and ability to overpower hitters. Standing at 6 feet 3 inches tall and possessing a solid frame, he generates impressive torque and leverage, adding extra zip to his pitches. Nagle's repertoire includes a devastating slider and a deceptive changeup, making him a formidable force in any pitching rotation. Known for his fierce competitiveness and unwavering focus, he is a rising star in the Los Angeles organization, poised to make a significant impact at higher levels of play.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div><div role="listitem" class="swiper-slide is-player w-dyn-item"><div class="text-color-red"><h2 class="heading-style-h1">Larry</h2><h2 class="heading-style-h1">Elberfeld</h2></div><div class="position-wrapper"><div class="hr"></div><div class="position">Center Field</div></div><div class="bio w-richtext"><p>Larry Elberfeld is an exciting rookie center fielder displaying immense promise, currently making his mark in a New York minor league team. Standing at 6 feet 2 inches, Elberfeld possesses impressive athleticism and speed, allowing him to cover ground with ease in the outfield. His natural instincts and exceptional range make him a defensive standout, often making highlight-reel catches that leave spectators in awe. At the plate, Elberfeld exhibits a smooth and powerful swing, generating both contact and power. With each game, he continues to hone his skills and showcase his potential, making him a highly anticipated prospect in the New York organization. Larry Elberfeld's combination of defensive prowess, offensive ability, and relentless work ethic make him a rising star worth keeping an eye on in the world of baseball.</p></div><div class="navigation"><a href="#" class="swiper-button-prev is-prev w-inline-block"><img src="images/6462bb100514668660c26535_prev.svg" loading="eager" alt="Previous"></a><a href="#" class="swiper-button-next is-next w-inline-block"><img src="images/6462bb1071184d2966ac7e06_next.svg" loading="eager" alt="Next"></a></div></div></div></div></div><div id="w-node-_46a70a3a-44e5-b1a3-57f2-c6a24ad0b8e7-969036dc" class="slider_right"><div class="swiper is-card w-dyn-list"><div role="list" class="swiper-wrapper is-card w-dyn-items"><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462c14986aec741dff9ab74_hoffman.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462c14986aec741dff9ab74_hoffman-p-500.jpg 500w, images/6462c14986aec741dff9ab74_hoffman.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462bfacf4c769459171074d_zacher.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462bfacf4c769459171074d_zacher-p-500.jpg 500w, images/6462bfacf4c769459171074d_zacher.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462bf788b1022bf1975681e_seaton.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462bf788b1022bf1975681e_seaton-p-500.jpg 500w, images/6462bf788b1022bf1975681e_seaton.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462c0e5807d03c0a30186ab_nagle.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462c0e5807d03c0a30186ab_nagle-p-500.jpg 500w, images/6462c0e5807d03c0a30186ab_nagle.jpg 580w" class="card"></div><div role="listitem" class="swiper-slide is-card w-dyn-item"><img loading="eager" src="images/6462c3b5a7d9a36bc61d13ee_elberfeld.jpg" alt="" sizes="(max-width: 479px) 64vw, 100vw" srcset="images/6462c3b5a7d9a36bc61d13ee_elberfeld-p-500.jpg 500w, images/6462c3b5a7d9a36bc61d13ee_elberfeld.jpg 580w" class="card"></div></div></div></div></div></div></div></div></section></div></div><script src="js/jquery-3.5.1.min.dc5e7f18c8.js" type="text/javascript" crossorigin="anonymous"></script><script src="js/webflow.060d0ea26.js" type="text/javascript"></script><script src="js/swiper-bundle.min.js"></script>
 <script>
-new Splide( '.splide', {
-	perPage: 3,
-	perMove: 1,
-  type   : 'loop',
-	focus  : 'center',
-  breakpoints: {
-		767: {
-			perPage: 1,
-		}
-	}
-} ).mount();
-
-$('.next-splide').click(function() {
-	$('.splide__arrow.splide__arrow--next').click();
+const swiperPlayer = new Swiper('.swiper.is-player', {
+	effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
+  followFinger: false,
+  keyboard: {
+    enabled: true,
+    onlyInViewport: false,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  initialSlide: 2,
 });
 
-$('.prev-splide').click(function() {
-	$('.splide__arrow.splide__arrow--prev').click();
-});
-</script>
-
-<script>
-$('.splide__list, .trigger').hover(function() {
-  $('.cursor__dot1').toggleClass('is--larger');
-  $('.cursor__dot2').toggleClass('is--larger');
+const swiperCard = new Swiper('.swiper.is-card', {
+  effect: 'cards',
+  grabCursor: true,
+  cardsEffect: {
+    slideShadows: false
+  },
+  initialSlide: 2,
 });
 
-$('.trigger').mouseenter(function() {
-  $('.cursor__text').text('OPEN');
-});
-
-$('.trigger').mouseleave(function() {
-	$('.cursor__text').text('DRAG');
-});
-
-$('.control').hover(function() {
-  $('.cursor__dot1').toggleClass('opacity-0');
-  $('.cursor__dot2').toggleClass('light-ring');
-});
-
-$('.trigger').click(function() {
-	$('.cursor').toggleClass('hide-cursor');
-});
-
-$('.trigger').click(function() {
-	$('body').toggleClass('overflow-hidden');
-});
-</script>
-
-<script src="js/2.0.2-anime.min.js"></script>
-<script> 
-// Fade Up Animation
-var fadeUp = anime.timeline({
-  loop: false,
-  autoplay: false,
-});
-
-fadeUp 
-  .add({
-    targets: '.nav-link__contain, .sublink__contain',
-    translateY: [300,0],
-    translateZ: 0,
-    opacity: [0,1],
-    easing: "easeOutExpo",
-    duration: 1400,
-    delay: (el, i) => 0 + 150 * i
-  });
-// Play animaton when something is clicked
-$( ".trigger" ).click(function() {
-	setTimeout(() => {  
-		fadeUp.restart();
-	}, 300);
-});
-
+swiperPlayer.controller.control = swiperCard;
+swiperCard.controller.control = swiperPlayer;
 </script></body></html>
