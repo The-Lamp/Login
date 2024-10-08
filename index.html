@@ -41,6 +41,11 @@
             background-color: #222;
             color: #fff;
         }
+        .error-message {
+            color: red;
+            margin-bottom: 15px;
+            display: none;
+        }
         .container button {
             width: 100%;
             padding: 10px;
@@ -99,24 +104,9 @@
 </head>
 <body>
 
-<div class="container" id="login-container">
-    <h2>Log in</h2>
-    <input type="email" placeholder="Email" id="login-email">
-    <div class="toggle-eye">
-        <input type="password" placeholder="Password" id="login-password">
-        <i onclick="togglePassword('login-password')" class="fa fa-eye"></i>
-    </div>
-    <button>Log in</button>
-    <a href="#" class="forgot-password">Forgot your password?</a>
-    <div class="alt-login">
-        <button onclick="loginWithGoogle()">Log in with Google</button>
-        <button onclick="loginWithNumber()">Log in with Number</button>
-    </div>
-    <p>Don't have an account? <a href="#" class="signup-link" onclick="toggleForm()">Sign up</a></p>
-</div>
-
-<div class="container" id="signup-container" style="display: none;">
+<div class="container" id="signup-container">
     <h2>Sign up</h2>
+    <p id="signup-error" class="error-message">Please fill all fields before signing up!</p>
     <input type="text" placeholder="Name" id="signup-name">
     <input type="email" placeholder="Email" id="signup-email">
     <div class="toggle-eye">
@@ -127,12 +117,29 @@
         <input type="password" placeholder="Re-enter Password" id="signup-repassword">
         <i onclick="togglePassword('signup-repassword')" class="fa fa-eye"></i>
     </div>
-    <button>Sign up</button>
+    <button onclick="signUp()">Sign up</button>
     <div class="alt-login">
-        <button onclick="signUpWithGoogle()">Sign up with Google</button>
-        <button onclick="signUpWithNumber()">Sign up with Number</button>
+        <button onclick="navigateToGoogle()">Sign up with Google</button>
+        <button onclick="navigateToNumber()">Sign up with Number</button>
     </div>
     <p>Already have an account? <a href="#" class="login-link" onclick="toggleForm()">Log in</a></p>
+</div>
+
+<div class="container" id="login-container" style="display: none;">
+    <h2>Log in</h2>
+    <p id="login-error" class="error-message">Please fill all fields before logging in!</p>
+    <input type="email" placeholder="Email" id="login-email">
+    <div class="toggle-eye">
+        <input type="password" placeholder="Password" id="login-password">
+        <i onclick="togglePassword('login-password')" class="fa fa-eye"></i>
+    </div>
+    <button onclick="login()">Log in</button>
+    <a href="#" class="forgot-password">Forgot your password?</a>
+    <div class="alt-login">
+        <button onclick="navigateToGoogle()">Log in with Google</button>
+        <button onclick="navigateToNumber()">Log in with Number</button>
+    </div>
+    <p>Don't have an account? <a href="#" class="signup-link" onclick="toggleForm()">Sign up</a></p>
 </div>
 
 <script>
@@ -162,20 +169,44 @@
         }
     }
 
-    function loginWithGoogle() {
-        alert('Login with Google functionality to be added.');
+    function login() {
+        let email = document.getElementById('login-email').value;
+        let password = document.getElementById('login-password').value;
+        let error = document.getElementById('login-error');
+        
+        if (email === "" || password === "") {
+            error.style.display = "block";
+        } else {
+            error.style.display = "none";
+            // Add actual login logic here
+            alert("Logging in...");
+        }
     }
 
-    function loginWithNumber() {
-        alert('Login with Number functionality to be added.');
+    function signUp() {
+        let name = document.getElementById('signup-name').value;
+        let email = document.getElementById('signup-email').value;
+        let password = document.getElementById('signup-password').value;
+        let repassword = document.getElementById('signup-repassword').value;
+        let error = document.getElementById('signup-error');
+        
+        if (name === "" || email === "" || password === "" || repassword === "") {
+            error.style.display = "block";
+        } else {
+            error.style.display = "none";
+            // Add actual signup logic here
+            alert("Signing up...");
+        }
     }
 
-    function signUpWithGoogle() {
-        alert('Sign up with Google functionality to be added.');
+    function navigateToGoogle() {
+        // Logic for navigating to Google sign-up/login screen
+        alert("Navigating to Google sign-up/login screen.");
     }
 
-    function signUpWithNumber() {
-        alert('Sign up with Number functionality to be added.');
+    function navigateToNumber() {
+        // Logic for navigating to Number sign-up/login screen
+        alert("Navigating to Number sign-up/login screen.");
     }
 </script>
 
