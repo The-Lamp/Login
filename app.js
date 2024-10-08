@@ -1,32 +1,39 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-analytics.js";
+
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "your-api-key",
-  authDomain: "your-auth-domain",
-  projectId: "your-project-id",
-  storageBucket: "your-storage-bucket",
-  messagingSenderId: "your-messaging-sender-id",
-  appId: "your-app-id"
+  apiKey: "AIzaSyBZJZvAD5_2VxuZ-VRLVShISqTA-8ylIxU",
+  authDomain: "the-lamp-55d80.firebaseapp.com",
+  projectId: "the-lamp-55d80",
+  storageBucket: "the-lamp-55d80.appspot.com",
+  messagingSenderId: "24684558102",
+  appId: "1:24684558102:web:41b16eb13d3ec097b74237",
+  measurementId: "G-PZXVSM51BQ"
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
 // Email Sign Up/Login
 const emailForm = document.getElementById("email-form");
 emailForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  auth.signInWithEmailAndPassword(email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log("Logged in:", userCredential.user);
     })
     .catch((error) => {
       if (error.code === 'auth/user-not-found') {
-        auth.createUserWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             console.log("Signed Up:", userCredential.user);
           })
@@ -40,13 +47,21 @@ emailForm.addEventListener("submit", (e) => {
 });
 
 // Phone Number Login
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+  'size': 'normal',
+  'callback': (response) => {
+    console.log("Recaptcha Solved");
+  },
+  'expired-callback': () => {
+    console.log("Recaptcha Expired");
+  }
+}, auth);
 
 function sendOTP() {
   const phoneNumber = document.getElementById("phone-number").value;
   const appVerifier = window.recaptchaVerifier;
 
-  auth.signInWithPhoneNumber(phoneNumber, appVerifier)
+  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
     .then((confirmationResult) => {
       window.confirmationResult = confirmationResult;
       document.getElementById("otp-form").style.display = "block";
