@@ -44,7 +44,9 @@ document.getElementById("signup-form").addEventListener("submit", async (e) => {
 
     // Optionally, you can save the username in your database
     document.getElementById("error-message").innerText = "Account created successfully!";
-    // Redirect or do further actions after signup
+
+    // Redirect to dashboard.html after signup
+    window.location.href = 'dashboard.html';
 
   } catch (error) {
     document.getElementById("error-message").innerText = error.message;
@@ -91,7 +93,9 @@ emailForm.addEventListener("submit", (e) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log("Logged in:", userCredential.user);
-      // Handle successful login (e.g., redirect or update UI)
+      
+      // Redirect to dashboard.html after successful login
+      window.location.href = 'dashboard.html';
     })
     .catch((error) => {
       if (error.code === 'auth/user-not-found') {
@@ -134,7 +138,9 @@ function verifyOTP() {
   window.confirmationResult.confirm(otp)
     .then((result) => {
       console.log("Logged in:", result.user);
-      // Handle successful OTP verification (e.g., redirect or update UI)
+      
+      // Redirect to dashboard.html after successful OTP verification
+      window.location.href = 'dashboard.html';
     })
     .catch((error) => {
       document.getElementById("error-message").textContent = error.message;
