@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Webflow Design</title>
+    <title>Webflow Design Text Only</title>
     <style>
         * {
             margin: 0;
@@ -12,94 +12,60 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #fce7e1;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8ece9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px;
             padding: 20px;
             text-align: center;
         }
-        .nutrition-facts {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 8px;
-            display: inline-block;
-            text-align: left;
-        }
-        .nutrition-facts span {
-            font-size: 14px;
-            color: #333;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-        .nutrition-facts span.highlight {
-            color: #13bdd8;
-            font-size: 24px;
-        }
         .headline {
-            font-size: 42px;
+            font-size: 64px;
             font-weight: bold;
-            color: #7f4935;
-            margin: 20px 0;
+            color: #7e4a35;
+            line-height: 0.9;
+            margin-bottom: 20px;
         }
         .subheadline {
-            font-size: 36px;
+            font-size: 64px;
             font-weight: bold;
-            color: #b88261;
+            color: #d2b0a6;
+            line-height: 0.9;
+            margin-bottom: 40px;
         }
         .text {
-            font-size: 18px;
+            font-size: 24px;
             color: #b88261;
             margin-bottom: 20px;
+            line-height: 1.5;
         }
         .text span {
             color: #ec9a54;
             font-weight: bold;
         }
-        .strawberry {
-            position: relative;
-            display: inline-block;
-        }
-        .strawberry img {
-            width: 300px;
-            border-radius: 50%;
-        }
-        .made-in-webflow {
-            display: inline-block;
-            background-color: #f5f5f5;
-            padding: 10px;
-            border-radius: 6px;
+        .bold-explosion {
+            font-size: 20px;
+            color: #b88261;
             margin-top: 20px;
-            color: #000;
-            text-decoration: none;
-            font-size: 14px;
+            line-height: 1.5;
+        }
+        .bold-explosion span {
+            color: #ec9a54;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="nutrition-facts">
-            <span class="highlight">13g FAT</span>
-            <span>10g Sugar for Energy</span>
-            <span>3g Protein for Strength</span>
-            <span>1g Fiber for Poop</span>
-            <span>250 Calories</span>
-            <span>237ml (8FL OZ)</span>
-        </div>
-
         <h1 class="headline">IT'S EASY</h1>
         <h2 class="subheadline">TO OVER DO IT.</h2>
         <p class="text">Snackable, work or play. Enjoy <span>DONÜTS</span> any time you choose.</p>
-        <p class="text">For a <span>BOLD</span> flavour explosion, leave a can in your trunk for the weekend.</p>
-
-        <div class="strawberry">
-            <img src="https://images.unsplash.com/photo-1565987332110-fc195fbfdc6a" alt="Strawberry">
-        </div>
-
-        <a href="#" class="made-in-webflow">Made in Webflow</a>
+        <p class="bold-explosion">For a <span>BOLD</span> flavour explosion, leave a can in your trunk for the weekend.</p>
     </div>
 </body>
 </html>
