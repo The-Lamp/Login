@@ -1,3 +1,30 @@
+// Switch to Signup Form
+document.getElementById("show-signup").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("form-title").textContent = "Create Account";
+  document.getElementById("email-form").style.display = "none"; // Hide email form
+  document.getElementById("phone-form").style.display = "none"; // Hide phone form
+  document.getElementById("otp-form").style.display = "none"; // Hide OTP form
+});
+
+// Switch to Login Form
+document.getElementById("show-login").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("form-title").textContent = "Login";
+  document.getElementById("email-form").style.display = "block"; // Show email form
+  document.getElementById("phone-form").style.display = "none"; // Hide phone form
+  document.getElementById("otp-form").style.display = "none"; // Hide OTP form
+});
+
+// Switch to Login from OTP Form
+document.getElementById("show-login-otp").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("form-title").textContent = "Login";
+  document.getElementById("email-form").style.display = "block"; // Show email form
+  document.getElementById("phone-form").style.display = "none"; // Hide phone form
+  document.getElementById("otp-form").style.display = "none"; // Hide OTP form
+});
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
