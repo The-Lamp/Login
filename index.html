@@ -80,12 +80,19 @@
     }
 
     .card {
-      flex: initial;
-      position: relative;
-      height: 52rem;
-      width: 48rem;
-      perspective: 200rem;
-      margin: 2rem;
+  width: 90%; /* Adjust width as per viewport */
+  aspect-ratio: 1 / 1; /* Maintain square shape */
+  height: auto;
+  -moz-perspective: 200rem;
+  perspective: 200rem;
+  margin: 2rem;
+  position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+  transition: all 0.8s ease;
     }
 
     .card__side {
