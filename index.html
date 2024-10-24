@@ -3,51 +3,297 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login/Signup</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>3D Flip Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    /* Colors */
+    $background-color: #ece0e8;
+    $color-primary-light: #ca3782;
+    $color-primary-dark: #1e0b36;
+    $color-black: #000;
+    $color-gray-dark: #aaa;
+    $color-gray-light: #eee;
+    $color-white: #fff;
+
+    /* Mixins */
+    @mixin absCenter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @mixin flexCenter {
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @mixin respond($breakpoint) {
+      @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+          @content;
+        }
+      }
+      @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {
+          @content;
+        }
+      }
+      @if $breakpoint == tab-land {
+        @media (max-width: 75em) {
+          @content;
+        }
+      }
+      @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {
+          @content;
+        }
+      }
+    }
+
+    /* Reset */
+    *, *::after, *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      height: 100vh;
+      background-color: #ece0e8;
+    }
+
+    .artboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem;
+      height: 100%;
+      gap: 2rem;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: initial;
+      position: relative;
+      height: 52rem;
+      width: 48rem;
+      perspective: 200rem;
+      margin: 2rem;
+    }
+
+    .card__side {
+      height: 52rem;
+      transition: all 0.8s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      backface-visibility: hidden;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+    }
+
+    .card__side--front {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba(30, 11, 54, 0.65),
+        rgba(202, 55, 130, 0.7)
+      ),
+      url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+    }
+
+    .card__side--back {
+      background-color: #fff;
+      transform: rotateY(180deg);
+    }
+
+    .card:hover .card__side--back {
+      transform: rotateY(0);
+    }
+
+    .card:hover .card__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    .card__theme {
+      position: absolute;
+      top: 54%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      text-align: center;
+    }
+
+    .card__theme-box {
+      color: #fff;
+      margin-bottom: 8rem;
+    }
+
+    .card__subject {
+      font-family: 'Inconsolata', monospace;
+      letter-spacing: 0.8rem;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .card__title {
+      font-family: 'VT323', monospace;
+      text-transform: uppercase;
+      font-size: 6rem;
+      font-weight: 100;
+    }
+
+    .card__cover {
+      position: relative;
+      background-size: cover;
+      height: 14rem;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      background-image: linear-gradient(
+        to top right,
+        rgba(30, 11, 54, 0.65),
+        rgba(202, 55, 130, 0.65)
+      ),
+      url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+    }
+
+    .card__heading {
+      text-align: center;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+    }
+
+    .card__heading-span {
+      font-family: 'VT323', monospace;
+      font-size: 4.2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      padding: 1rem 1.5rem;
+      color: #fff;
+    }
+
+    .card__details {
+      font-family: 'Inconsolata', monospace;
+      padding: 4rem 2rem;
+    }
+
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .card__details li {
+      text-align: center;
+      font-size: 1.8rem;
+      padding: 1rem;
+    }
+
+    .card__details li:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2 id="form-title">Login</h2>
-    <div id="error-message"></div>
+  <div class="artboard">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card__side card__side--front">
+        <div class="card__theme">
+          <div class="card__theme-box">
+            <p class="card__subject">Web Developer</p>
+            <p class="card__title">Hello World!</p>
+          </div>
+        </div>
+      </div>
+      <div class="card__side card__side--back">
+        <div class="card__cover">
+          <h4 class="card__heading">
+            <span class="card__heading-span">Skill Set</span>
+          </h4>
+        </div>
+        <div class="card__details">
+          <ul>
+            <li>Advanced JS and CSS</li>
+            <li>JS/CSS Preprocessors</li>
+            <li>JS Frameworks</li>
+            <li>Advanced Animations</li>
+            <li>Deployment Pipelines</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <!-- Login Form -->
-    <form id="email-form">
-      <input type="email" id="login-email" placeholder="Email" required>
-      <input type="password" id="login-password" placeholder="Password" required>
-      <button type="submit">Login with Email</button>
-      <p>Don't have an account? <a href="#" id="show-signup">Create Account</a></p>
-    </form>
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card__side card__side--front">
+        <div class="card__theme">
+          <div class="card__theme-box">
+            <p class="card__subject">Backend Developer</p>
+            <p class="card__title">Server Guru</p>
+          </div>
+        </div>
+      </div>
+      <div class="card__side card__side--back">
+        <div class="card__cover">
+          <h4 class="card__heading">
+            <span class="card__heading-span">Skill Set</span>
+          </h4>
+        </div>
+        <div class="card__details">
+          <ul>
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>RESTful APIs</li>
+            <li>Database Management</li>
+            <li>Cloud Integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <!-- Signup Form -->
-    <form id="signup-form" style="display: none;">
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="email" id="signup-email" placeholder="Email" required>
-      <input type="password" id="signup-password" placeholder="Password" required>
-      <input type="password" id="confirm-password" placeholder="Re-enter Password" required>
-      <label>
-        <input type="checkbox" id="terms" required> I agree to the Terms and Conditions
-      </label>
-      <button type="submit">Create Account</button>
-      <p>Already have an account? <a href="#" id="show-login">Login</a></p>
-    </form>
-
-    <!-- Phone Signup/Login Form -->
-    <form id="phone-form" style="display: none;">
-      <input type="text" id="phone-number" placeholder="Phone Number (+91)" required>
-      <div id="recaptcha-container"></div>
-      <button type="button" onclick="sendOTP()">Send OTP</button>
-      <p>Already have an account? <a href="#" id="show-login">Login</a></p>
-    </form>
-
-    <!-- OTP Form -->
-    <form id="otp-form" style="display: none;">
-      <input type="text" id="otp" placeholder="Enter OTP" required>
-      <button type="button" onclick="verifyOTP()">Verify OTP</button>
-      <p>Already have an account? <a href="#" id="show-login-otp">Login</a></p>
-    </form>
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card__side card__side--front">
+        <div class="card__theme">
+          <div class="card__theme-box">
+            <p class="card__subject">UI/UX Designer</p>
+            <p class="card__title">Pixel Perfect</p>
+          </div>
+        </div>
+      </div>
+      <div class="card__side card__side--back">
+        <div class="card__cover">
+          <h4 class="card__heading">
+            <span class="card__heading-span">Skill Set</span>
+          </h4>
+        </div>
+        <div class="card__details">
+          <ul>
+            <li>Figma</li>
+            <li>Adobe XD</li>
+            <li>Wireframing</li>
+            <li>User Research</li>
+            <li>Prototyping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
   </div>
-
-  <script type="module" src="app.js"></script>
 </body>
 </html>
